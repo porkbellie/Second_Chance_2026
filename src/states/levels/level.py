@@ -62,11 +62,11 @@ class Level(State):
         self.tiles.update(self.scroll)
 
         # Enemy scroll logic put into level update
-        for e in self.enemies:
-            e.rect.x += self.scroll
-            e.hitbox.x += self.scroll
-            e.left_boundary += self.scroll
-            e.right_boundary += self.scroll
+        for enemy in self.enemies:
+            enemy.rect.x += self.scroll
+            enemy.hitbox.x += self.scroll
+            enemy.left_boundary += self.scroll
+            enemy.right_boundary += self.scroll
 
         # Check for collision between player's melee attacks and enemy
 
