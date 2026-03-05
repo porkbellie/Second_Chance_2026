@@ -10,6 +10,7 @@ from src.constants import *
 from src.entities.enemies.archer import archer
 from src.entities.enemies.eyeball import Eyeball
 from src.entities.enemies.skeleton import Skeleton
+from src.entities.enemies.soldier import Soldier
 from src.entities.enemies.wolf import Wolf
 from src.entities.player import Player
 from src.objects.tiles import Tile
@@ -292,7 +293,7 @@ class World:
         for y, row in enumerate(data):
             for x, tile in enumerate(row):
                 collision = True
-                if tile in [11, 13, 14, 16, 17, 18, 19, 20]:
+                if tile in [11, 13, 14, 16, 17, 18, 19, 21, 20]:
                     collision = False
                 if tile >= 0:
                     if tile >= 0 and tile <= 8:
@@ -314,6 +315,9 @@ class World:
                         self.enemy_group.add(enemy)
                     elif tile == 19:
                         enemy = Wolf(x * TILE_SIZE, y * TILE_SIZE, self.platform_group, self.tiles)
+                        self.enemy_group.add(enemy)
+                    elif tile == 21:
+                        enemy = Soldier(x * TILE_SIZE, y * TILE_SIZE, self.platform_group, self.tiles)
                         self.enemy_group.add(enemy)
                     elif tile == 20:
                         pass
